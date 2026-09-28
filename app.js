@@ -1,5 +1,9 @@
-const DRAFT_KEY = 'winter-route-2026-online-draft-v2';
-const API_URL = 'https://api.github.com/repos/gessiegulugulu/travel/contents/trip.json';
+const DRAFT_KEY = 'winter-route-2026-online-draft-v3';
+const OLD_DRAFT_KEY = 'winter-route-2026-online-draft-v2';
+const STORAGE = window.TRAVEL_STORAGE || {};
+const STORAGE_URL = /^https:\/\/[a-z0-9-]+\.supabase\.co\/?$/.test(STORAGE.url || '')
+  ? STORAGE.url.replace(/\/$/, '') + '/rest/v1/travel_plan' : '';
+const STORAGE_READY = !!(STORAGE_URL && /^sb_publishable_[A-Za-z0-9_-]+$/.test(STORAGE.publishableKey || ''));
 const euro = (value) => '€' + Math.round(value).toLocaleString('en-US');
 const el = (tag, className, value) => {
   const node = document.createElement(tag);
@@ -11,9 +15,8 @@ const el = (tag, className, value) => {
 let published;
 let trip;
 let activeFilter = 'all';
-let publishedSha = null;
-let draftBaseSha = null;
-let editorToken = '';
+let publishedRevision = null;
+let draftBaseRevision = null;
 
 function setStatus(message, error = false) {
   const node = document.querySelector('#save-status');
@@ -21,36 +24,46 @@ function setStatus(message, error = false) {
   node.classList.toggle('error', error);
 }
 
-async function fetchPublished(token = '') {
-  const headers = {'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28'};
-  if (token) headers.Authorization = `Bearer ${token}`;
-  const response = await fetch(`${API_URL}?ref=main`, {headers, cache:'no-store'});
-  if (!response.ok) throw new Error(`GitHub HTTP ${response.status}`);
-  const file = await response.json();
-  const bytes = Uint8Array.from(atob(file.content.replace(/\s/g, '')), (char) => char.charCodeAt(0));
-  return {data: JSON.parse(new TextDecoder().decode(bytes)), sha: file.sha};
+function validPlan(data) {
+  return data && data.version === 1 && Array.isArray(data.route) && Array.isArray(data.days)
+    && Array.isArray(data.attractions) && Array.isArray(data.flights) && data.budget
+    && Array.isArray(data.tasks) && Array.isArray(data.sources);
 }
 
-function encodeContent(value) {
-  const bytes = new TextEncoder().encode(value);
-  let binary = '';
-  for (let index = 0; index < bytes.length; index += 0x8000) {
-    binary += String.fromCharCode(...bytes.subarray(index, index + 0x8000));
+async function fetchPublished() {
+  if (!STORAGE_READY) throw new Error('共享数据表尚未配置');
+  const response = await fetch(`${STORAGE_URL}?id=eq.main&select=revision,data`, {
+    headers: {apikey: STORAGE.publishableKey, Accept: 'application/json'}, cache: 'no-store'
+  });
+  if (!response.ok) throw new Error(`共享服务 HTTP ${response.status}`);
+  const rows = await response.json();
+  if (rows.length !== 1 || !validPlan(rows[0].data) || !Number.isSafeInteger(rows[0].revision)) {
+    throw new Error('共享数据缺失或格式不正确');
   }
-  return btoa(binary);
+  return rows[0];
+}
+
+async function fetchBundled() {
+  const response = await fetch('./trip.json', {cache:'no-store'});
+  if (!response.ok) throw new Error(`内置行程 HTTP ${response.status}`);
+  const data = await response.json();
+  if (!validPlan(data)) throw new Error('内置行程格式不正确');
+  return data;
 }
 
 function storeDraft() {
-  try { localStorage.setItem(DRAFT_KEY, JSON.stringify({baseSha:draftBaseSha, data:trip})); }
+  try { localStorage.setItem(DRAFT_KEY, JSON.stringify({baseRevision:draftBaseRevision, data:trip})); }
   catch { /* Browsers with storage disabled still allow downloads. */ }
-  setStatus('本机有未共享修改 · 点击“保存到共享计划”');
+  setStatus(STORAGE_READY && publishedRevision !== null
+    ? '本机有未共享修改 · 点击“保存到共享计划”'
+    : '本机草稿已保留；共享保存尚未启用。');
 }
 
 function getDraft() {
   try {
-    const saved = JSON.parse(localStorage.getItem(DRAFT_KEY));
+    const saved = JSON.parse(localStorage.getItem(DRAFT_KEY) || localStorage.getItem(OLD_DRAFT_KEY));
     if (saved && saved.data?.version === published.version && Array.isArray(saved.data.days)) {
-      draftBaseSha = saved.baseSha;
+      draftBaseRevision = Number.isSafeInteger(saved.baseRevision) ? saved.baseRevision : null;
       return saved.data;
     }
     return null;
@@ -269,48 +282,48 @@ function openSightEditor(index) {
 
 async function saveOnline() {
   const button = document.querySelector('#save-online');
-  if (!editorToken) { setStatus('请先输入共享密钥并点击“使用密钥”。', true); return; }
+  if (!STORAGE_READY || publishedRevision === null) {
+    setStatus('共享保存尚未启用。可先下载本机备份，站点主人完成数据表配置后再试。', true);
+    return;
+  }
   button.disabled = true;
   setStatus('正在检查线上版本并保存…');
   try {
-    if (draftBaseSha !== publishedSha) {
+    if (draftBaseRevision !== publishedRevision) {
       setStatus('本机草稿基于旧版。请先下载备份，再刷新并合并修改；此处没有覆盖线上计划。', true);
       return;
     }
-    const latest = await fetchPublished(editorToken);
-    if (!publishedSha) {
-      setStatus('网页尚未绑定线上版本，请刷新后再保存。', true);
-      return;
-    }
-    if (latest.sha !== publishedSha) {
+    const latest = await fetchPublished();
+    if (latest.revision !== publishedRevision) {
       setStatus('另一位朋友已更新线上计划。请先下载本机备份，刷新后合并；此处没有覆盖对方。', true);
       return;
     }
     trip.updated = new Date().toISOString().slice(0, 10);
-    const content = encodeContent(JSON.stringify(trip, null, 2) + '\n');
-    const response = await fetch(API_URL, {
-      method: 'PUT',
+    const response = await fetch(`${STORAGE_URL}?id=eq.main&revision=eq.${publishedRevision}&select=revision`, {
+      method: 'PATCH',
       headers: {
-        'Accept': 'application/vnd.github+json',
+        apikey: STORAGE.publishableKey,
+        Accept: 'application/json',
         'Content-Type': 'application/json',
-        'X-GitHub-Api-Version': '2022-11-28',
-        'Authorization': `Bearer ${editorToken}`
+        Prefer: 'return=representation'
       },
-      body: JSON.stringify({message:'Update shared winter trip plan', content, sha:publishedSha, branch:'main'})
+      body: JSON.stringify({data: trip, revision: publishedRevision + 1})
     });
     if (!response.ok) {
-      if (response.status === 409) throw new Error('线上发生版本冲突，请备份本机修改后刷新。');
-      if (response.status === 401 || response.status === 403) throw new Error('密钥无效，或没有 travel 仓库 Contents 读写权限。');
-      throw new Error(`保存失败（GitHub HTTP ${response.status}）。`);
+      throw new Error(`共享保存失败（HTTP ${response.status}）。`);
     }
-    const result = await response.json();
-    publishedSha = result.content.sha;
-    draftBaseSha = publishedSha;
+    const rows = await response.json();
+    if (rows.length !== 1 || rows[0].revision !== publishedRevision + 1) {
+      setStatus('另一位朋友先保存了新版本。请下载备份，重新读取共享版后手动合并。', true);
+      return;
+    }
+    publishedRevision = rows[0].revision;
+    draftBaseRevision = publishedRevision;
     published = structuredClone(trip);
-    try { localStorage.removeItem(DRAFT_KEY); } catch { /* no storage */ }
+    try { localStorage.removeItem(DRAFT_KEY); localStorage.removeItem(OLD_DRAFT_KEY); } catch { /* no storage */ }
     setStatus('已保存到共享计划。朋友刷新网页即可看到新版本。');
   } catch (error) {
-    setStatus(error.message || '暂时无法连接 GitHub，请稍后重试。', true);
+    setStatus(error.message || '暂时无法连接共享服务，请稍后重试。', true);
   } finally {
     button.disabled = false;
   }
@@ -347,12 +360,6 @@ function wireEvents() {
   document.querySelector('#edit-guide').addEventListener('click', () => guide.showModal());
   document.querySelector('#close-guide').addEventListener('click', () => guide.close());
   document.querySelector('#group-note').addEventListener('input', (event) => { trip.groupNote = event.target.value; storeDraft(); });
-  document.querySelector('#set-key').addEventListener('click', () => {
-    const input = document.querySelector('#editor-key');
-    editorToken = input.value.trim();
-    input.value = '';
-    setStatus(editorToken ? '密钥已用于本次打开的页面；修改后点击“保存到共享计划”。' : '请输入共享密钥。', !editorToken);
-  });
   document.querySelector('#save-online').addEventListener('click', saveOnline);
   document.querySelector('#export-json').addEventListener('click', () => {
     trip.updated = new Date().toISOString().slice(0, 10);
@@ -363,16 +370,16 @@ function wireEvents() {
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   });
   document.querySelector('#reset-draft').addEventListener('click', async () => {
-    if (!window.confirm('放弃本机未共享修改，重新读取 GitHub 线上版本？')) return;
+    if (!window.confirm('放弃本机未共享修改，重新读取共享版本？')) return;
     try {
       const latest = await fetchPublished();
-      published = latest.data; publishedSha = latest.sha;
+      published = latest.data; publishedRevision = latest.revision;
     } catch (error) {
-      setStatus(`暂时无法读取线上版本：${error.message}`, true);
+      setStatus(`暂时无法读取共享版本：${error.message}`, true);
       return;
     }
-    try { localStorage.removeItem(DRAFT_KEY); } catch { /* no storage */ }
-    draftBaseSha = publishedSha;
+    try { localStorage.removeItem(DRAFT_KEY); localStorage.removeItem(OLD_DRAFT_KEY); } catch { /* no storage */ }
+    draftBaseRevision = publishedRevision;
     trip = structuredClone(published); renderAll();
     setStatus('已读取最新共享计划。');
   });
@@ -387,20 +394,21 @@ async function start() {
   try {
     try {
       const latest = await fetchPublished();
-      published = latest.data; publishedSha = latest.sha;
-    } catch {
-      const response = await fetch('./trip.json', {cache:'no-store'});
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      published = await response.json();
+      published = latest.data; publishedRevision = latest.revision;
+    } catch (error) {
+      published = await fetchBundled();
+      if (STORAGE_READY) console.warn('共享版本读取失败；已载入内置行程。', error);
     }
     const draft = getDraft();
     trip = draft || structuredClone(published);
-    if (!draft) draftBaseSha = publishedSha;
+    if (!draft) draftBaseRevision = publishedRevision;
     renderAll(); wireEvents();
-    if (!publishedSha) setStatus('当前是网页内置版本，尚未连上新仓库；发布后刷新即可在线保存。', true);
-    else if (draft && draftBaseSha !== publishedSha) setStatus('线上计划已更新，本机草稿仍保留。先下载备份，再重新读取线上版并手动合并。', true);
-    else if (draft) setStatus('已恢复本机未共享草稿。修改后输入密钥并保存到共享计划。');
-    else setStatus('已读取最新共享计划。修改后输入密钥即可在线保存。');
+    if (!STORAGE_READY) setStatus('共享保存尚未启用；站点主人需要完成一次性数据表配置。当前可修改本机草稿并下载备份。', true);
+    else if (publishedRevision === null) setStatus('共享服务暂时无法读取。当前仅显示内置行程，保存已暂停。', true);
+    else if (draft && draftBaseRevision !== publishedRevision) setStatus('共享计划已更新，本机草稿仍保留。先下载备份，再重新读取共享版并手动合并。', true);
+    else if (draft) setStatus('已恢复本机未共享草稿。点击“保存到共享计划”同步给朋友。');
+    else setStatus('已读取最新共享计划。修改后点击保存即可同步。');
+    document.querySelector('#save-online').disabled = publishedRevision === null;
   } catch (error) {
     const notice = document.querySelector('.notice');
     notice.querySelector('strong').textContent = '行程数据暂时无法读取';
