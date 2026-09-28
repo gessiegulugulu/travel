@@ -90,6 +90,26 @@ function renderDays() {
       line.append(el('b', '', label), el('span', '', value));
       body.append(line);
     });
+    if (day.logistics || day.booking || day.backup) {
+      const details = el('div', 'day-details');
+      [['动线', day.logistics], ['预订', day.booking], ['备选', day.backup]].forEach(([label, value]) => {
+        if (!value) return;
+        const line = el('div', 'detail-line');
+        line.append(el('b', '', label), el('span', '', value));
+        details.append(line);
+      });
+      body.append(details);
+    }
+    if (Array.isArray(day.links) && day.links.length) {
+      const links = el('div', 'day-links');
+      day.links.forEach(({name, url}) => {
+        if (!/^https:\/\//.test(url)) return;
+        const link = el('a', '', `${name} ↗`);
+        link.href = url; link.target = '_blank'; link.rel = 'noopener';
+        links.append(link);
+      });
+      body.append(links);
+    }
     const foot = el('div', 'day-foot');
     foot.append(el('span', '', day.note));
     const edit = el('button', '', '修改 ↗');
@@ -99,6 +119,31 @@ function renderDays() {
     body.append(foot);
     card.append(date, body);
     host.append(card);
+  });
+}
+
+function renderSights() {
+  const host = document.querySelector('#sight-grid');
+  host.replaceChildren();
+  (trip.attractions || published.attractions || []).forEach((sight, index) => {
+    const card = el('article', 'sight-card');
+    const top = el('div', 'sight-top');
+    top.append(el('span', '', `${sight.city} · ${sight.day}`), el('span', '', `0${index + 1}`));
+    card.append(top, el('h3', '', sight.title), el('p', 'sight-time', sight.time));
+    [['预约／开放', sight.booking], ['怎样去', sight.arrival], ['随身准备', sight.bring], ['备选', sight.fallback]].forEach(([label, value]) => {
+      const line = el('div', 'sight-line');
+      line.append(el('strong', '', label), el('span', '', value));
+      card.append(line);
+    });
+    const foot = el('div', 'sight-foot');
+    if (/^https:\/\//.test(sight.url || '')) {
+      const source = el('a', '', `${sight.sourceName || '查看官网'} ↗`);
+      source.href = sight.url; source.target = '_blank'; source.rel = 'noopener';
+      foot.append(source);
+    }
+    const edit = el('button', '', '修改 ↗');
+    edit.type = 'button'; edit.addEventListener('click', () => openSightEditor(index));
+    foot.append(edit); card.append(foot); host.append(card);
   });
 }
 
@@ -206,10 +251,20 @@ function openDayEditor(index) {
   const day = trip.days[index];
   document.querySelector('#day-index').value = index;
   document.querySelector('#dialog-title').textContent = `${day.date} · ${day.city}`;
-  ['title', 'morning', 'afternoon', 'evening', 'note'].forEach((key) => {
-    document.querySelector(`#day-${key}`).value = day[key];
+  ['title', 'morning', 'afternoon', 'evening', 'logistics', 'booking', 'backup', 'note'].forEach((key) => {
+    document.querySelector(`#day-${key}`).value = day[key] || '';
   });
   document.querySelector('#day-dialog').showModal();
+}
+
+function openSightEditor(index) {
+  const sight = (trip.attractions || published.attractions)[index];
+  document.querySelector('#sight-index').value = index;
+  document.querySelector('#sight-dialog-title').textContent = sight.title;
+  ['title', 'time', 'booking', 'arrival', 'bring', 'fallback', 'sourceName', 'url'].forEach((key) => {
+    document.querySelector(`#sight-${key}`).value = sight[key] || '';
+  });
+  document.querySelector('#sight-dialog').showModal();
 }
 
 async function saveOnline() {
@@ -271,12 +326,23 @@ function wireEvents() {
   document.querySelector('#day-form').addEventListener('submit', (event) => {
     event.preventDefault();
     const index = Number(document.querySelector('#day-index').value);
-    ['title', 'morning', 'afternoon', 'evening', 'note'].forEach((key) => {
+    ['title', 'morning', 'afternoon', 'evening', 'logistics', 'booking', 'backup', 'note'].forEach((key) => {
       trip.days[index][key] = document.querySelector(`#day-${key}`).value.trim();
     });
     storeDraft(); renderDays(); dialog.close();
   });
   ['#close-dialog', '#cancel-dialog'].forEach((id) => document.querySelector(id).addEventListener('click', () => dialog.close()));
+  const sightDialog = document.querySelector('#sight-dialog');
+  document.querySelector('#sight-form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    const index = Number(document.querySelector('#sight-index').value);
+    if (!trip.attractions) trip.attractions = structuredClone(published.attractions);
+    ['title', 'time', 'booking', 'arrival', 'bring', 'fallback', 'sourceName', 'url'].forEach((key) => {
+      trip.attractions[index][key] = document.querySelector(`#sight-${key}`).value.trim();
+    });
+    storeDraft(); renderSights(); sightDialog.close();
+  });
+  ['#close-sight', '#cancel-sight'].forEach((id) => document.querySelector(id).addEventListener('click', () => sightDialog.close()));
   const guide = document.querySelector('#guide-dialog');
   document.querySelector('#edit-guide').addEventListener('click', () => guide.showModal());
   document.querySelector('#close-guide').addEventListener('click', () => guide.close());
@@ -313,7 +379,7 @@ function wireEvents() {
 }
 
 function renderAll() {
-  renderRoute(); renderDays(); renderFlights(); renderBudget(); renderTasks(); renderSources();
+  renderRoute(); renderDays(); renderSights(); renderFlights(); renderBudget(); renderTasks(); renderSources();
   document.querySelector('#group-note').value = trip.groupNote || '';
 }
 
