@@ -14,29 +14,39 @@
 2. 进入 `Settings → Pages → Build and deployment`，选择 `Deploy from a branch`、`main`、`/(root)`，保存。根目录中的 `.nojekyll` 会让这些静态文件原样发布。
 3. 打开 `https://gessiegulugulu.github.io/travel/`。如果个人主页已设置自定义域名，GitHub Pages 项目站点可能沿用该域名；请核对 Pages 设置。
 
-## 在线编辑（共享密钥）
+## 免输入密钥的共享编辑
 
-网页公开读取 GitHub 仓库的 `trip.json`。用户输入密钥后，网页用 GitHub REST API 检查文件的当前 SHA，随后只对 `trip.json` 发出更新请求。保存成功后，其他朋友刷新网页即可读取最新版本；如果在线文件已被别人修改，网页会拒绝覆盖并提示先下载备份。修改前后会在本机保存草稿，密钥仅在当前页面的 JavaScript 内存中使用，不写入 localStorage、仓库或 URL。
+页面仍由 GitHub Pages 托管；行程数据放在独立的 Supabase 数据表。朋友无需 GitHub 仓库权限、账号或手动输入密钥，打开页面修改并点击“保存到共享计划”即可同步。浏览器先保存本机草稿；保存时按数据库版本号原子更新，若他人抢先保存会提示冲突并保留草稿。网页上的公开配置只用 Supabase **publishable key**，绝不可填写 secret / service role key。
 
-仓库主人需要自行创建一串 **fine-grained personal access token**：
+首次启用需要仓库主人完成这三步：
 
-- Resource owner: `gessiegulugulu`
-- Repository access: **Only select repositories → travel**
-- Repository permissions: **Contents → Read and write**（Metadata 为默认只读）
-- Expiration: 尽量短，例如旅行结束后到期
+1. 新建一个 Supabase 项目，在项目的 **SQL Editor** 中运行 [`setup.sql`](setup.sql)。脚本建立仅含一条公开行程记录的数据表，并导入当前 `trip.json`。重复运行不会覆盖行程数据。
+2. 在项目的 **Connect** 或 **Settings → API Keys** 找到 Project URL 和 `sb_publishable_...`，填写到 [`config.js`](config.js) 的 `url` 和 `publishableKey`。这两项是公开的网页配置，不是私人密钥。
+3. 将改动提交到 `travel` 仓库 `main`，等 GitHub Pages 发布后，在两个不同浏览器分别修改并刷新核对。若 `config.js` 仍为空，页面只显示内置行程，允许本机草稿和下载备份，但共享保存会暂停并显示明确提示。
 
-通过可信的私下渠道分享给两位朋友。朋友**无需成为仓库协作者或拥有个人 GitHub 仓库权限**，但持有此令牌的人实际拥有 `travel` 仓库内容的写入权，且 GitHub 不支持把该令牌进一步限制到 `trip.json` 一个文件。若密钥泄露，立即在 GitHub 撤销并重新生成。不要把密钥放在公开仓库、URL 或群公告里。不要在公开行程写护照号、签证材料、预订确认号、个人联系方式。
+这个方案对**所有访问者开放写入**。知道网址的人可以改公开行程，不能证明是谁修改；不要写护照号、签证资料、预订确认号或联系方式。数据库 `travel_plan_history` 会保存被替换的旧版本，仅项目主人可在 SQL Editor 中查看和恢复。若以后需要仅限朋友修改，可加登录限制。
 
-可选的更严格方案是另建带密码验证的后端，只放行 `trip.json` 更新；那需要额外服务器或云服务及部署凭据。
+### 恢复旧版
+
+在 Supabase SQL Editor 查看 `select revision, replaced_at from public.travel_plan_history order by revision desc;`，选定版本后运行：
+
+```sql
+update public.travel_plan
+set data = (select data from public.travel_plan_history where revision = 1),
+    revision = revision + 1
+where id = 'main';
+```
+
+将示例中的 `1` 换成要恢复的版本号。当前版在恢复前也会自动存入历史表。
 
 ## 本地预览
 
-在此目录运行 `python3 -m http.server 8000`，打开 `http://localhost:8000/`。新仓库建立前，GitHub API 读取会失败，网页退回到本地 `trip.json`，在线保存不可用；仓库发布后将自动使用在线版本。
+在此目录运行 `python3 -m http.server 8000`，打开 `http://localhost:8000/`。未填公开配置前，网页读取内置 `trip.json`，可保存本机草稿和下载备份；完成数据表及 `config.js` 后才会启用共享保存。
 
 ## 数据与估算
 
 - `trip.json`：详细逐日安排、景点准备卡片、航班报价、预算、待办和官方参考链接。逐日安排及景点卡片均可通过网页编辑。
-- `index.html` / `styles.css` / `app.js`：无构建依赖的静态网页。
+- `index.html` / `styles.css` / `app.js` / `config.js`：无构建依赖的静态网页；`setup.sql` 是一次性数据库安装脚本。
 - 预算起始数字是规划假设，不是可订价格；活动门票基数 €145／人按城堡、宫殿、一座美术馆和温泉大致预留，实际票价及取舍可在网页修改。国际机票、签证费和个人购物未计入。
 - A/B 仅比较三人机票报价；备选路线的住宿与火车仍需分别计算。
 - 2026 年 9 月 28 日核对的官方来源列在网页末尾；票价、节日营业时间和签证规则在付款前再次核对。
