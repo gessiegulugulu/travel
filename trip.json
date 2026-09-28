@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "updated": "2026-09-28",
+  "title": "冬日三城汇合计划",
+  "dates": "2026.12.25 — 2027.01.03",
+  "route": [
+    { "city": "布拉格", "en": "Prague", "code": "PRG", "nights": 2, "country": "捷克" },
+    { "city": "维也纳", "en": "Vienna", "code": "VIE", "nights": 4, "country": "奥地利" },
+    { "city": "布达佩斯", "en": "Budapest", "code": "BUD", "nights": 2, "country": "匈牙利" }
+  ],
+  "days": [
+    { "date": "12月25日", "week": "周五", "city": "在路上", "kind": "flight", "title": "从三地出发", "morning": "巴塞罗那可选 25 日或 26 日出发，以 26 日傍晚抵达布拉格为准。", "afternoon": "多伦多尽量选 25 日傍晚起飞、26 日抵达的联程票。", "evening": "香港／深圳比较 25 日出发、26 日抵达的同票号联程。", "note": "集合时间设在 26 日晚；别为了同一班机增加昂贵绕路。", "stay": "机上／各自安排" },
+    { "date": "12月26日", "week": "周六", "city": "布拉格", "kind": "stay", "title": "老城集合 · 慢慢进入假期", "morning": "抵达 PRG，按各自航班进入市区；公寓尽量选新城或火车总站附近。", "afternoon": "老城广场、天文钟与查理大桥轻步行。", "evening": "在老城广场圣诞市集合晚餐；安排可自由加入的集合时间。", "note": "圣诞市集官方日历列至 2027 年 1 月 6 日，26 日各摊位营业时间仍以现场公告为准。", "stay": "布拉格第 1 晚" },
+    { "date": "12月27日", "week": "周日", "city": "布拉格", "kind": "stay", "title": "城堡与河岸", "morning": "布拉格城堡区与圣维特大教堂，按官方节日开放时间订票。", "afternoon": "小城区、列侬墙与伏尔塔瓦河岸；天气差可换室内咖啡馆。", "evening": "捷克家常菜晚餐，饭后再看瓦茨拉夫广场灯饰。", "note": "景点具体开放安排临近出发再核对。", "stay": "布拉格第 2 晚" },
+    { "date": "12月28日", "week": "周一", "city": "维也纳", "kind": "rail", "title": "火车进维也纳", "morning": "从 Praha hl.n. 乘直达 Railjet 到 Wien Hbf，车程约 4 小时；预留早餐和进站时间。", "afternoon": "放好行李后走环城大道、国家歌剧院与圣斯蒂芬大教堂。", "evening": "在市中心吃饭；想听音乐可自行选择正规演出。", "note": "优先比较 ČD 和 ÖBB 官网的同一班车，提前买折扣票并考虑订座。", "stay": "维也纳第 1 晚" },
+    { "date": "12月29日", "week": "周二", "city": "维也纳", "kind": "stay", "title": "美泉宫与冬日市集", "morning": "美泉宫室内参观，预约好时段。", "afternoon": "逛美泉宫圣诞市集与花园；市集官方日期覆盖到 1 月 6 日。", "evening": "回城吃晚餐，留一点自由活动时间。", "note": "宫殿门票、开放时段与市集各摊位时间分别核对。", "stay": "维也纳第 2 晚" },
+    { "date": "12月30日", "week": "周三", "city": "维也纳", "kind": "stay", "title": "艺术馆或轻松自由日", "morning": "艺术史博物馆或美景宫二选一，避免一天买太多票。", "afternoon": "纳旭市场周边、咖啡馆或自由购物；不追求打卡数量。", "evening": "提前确认 31 日晚餐和回程交通。", "note": "可把这一日当作恶劣天气的弹性缓冲。", "stay": "维也纳第 3 晚" },
+    { "date": "12月31日", "week": "周四", "city": "维也纳", "kind": "event", "title": "在维也纳迎接新年", "morning": "睡晚一点，沿市中心轻步行。", "afternoon": "维也纳 New Year's Eve Trail 官方活动从下午 2 点开始。", "evening": "提早晚餐后选择一个广场参加跨年活动；步行回住处，别依赖临时叫车。", "note": "官方列出的活动至次日凌晨 2 点；免费公共区域可以控制跨年预算。", "stay": "维也纳第 4 晚" },
+    { "date": "1月1日", "week": "周五", "city": "布达佩斯", "kind": "rail", "title": "多瑙河边放慢脚步", "morning": "上午退房，乘 Wien Hbf → Budapest 的直达火车，车程约 2 小时 40 分。", "afternoon": "入住后沿多瑙河看国会大厦、链桥外观。", "evening": "想放松可预约塞切尼温泉；官方页面列 2027 年元旦营业至 20:00。", "note": "元旦公共交通及餐厅可能调整；温泉需核对最终入场时间。", "stay": "布达佩斯第 1 晚" },
+    { "date": "1月2日", "week": "周六", "city": "布达佩斯", "kind": "stay", "title": "城堡山 · 最后一整天", "morning": "渔人堡和城堡山步行；看天气决定是否登高。", "afternoon": "中央市场或犹太区的轻松路线；可选温泉补位。", "evening": "三人正式告别晚餐，检查次日机场交通与航班。", "note": "热门餐厅和需要门票的景点提前预约；保持返程前一晚轻松。", "stay": "布达佩斯第 2 晚" },
+    { "date": "1月3日", "week": "周日", "city": "返程", "kind": "flight", "title": "从 BUD 各自回家", "morning": "按各自航班前往 BUD；预留跨年后的机场客流余量。", "afternoon": "巴塞罗那通常当日抵达；多伦多和香港／深圳需按中转与时差确认到达日。", "evening": "互相报平安，收尾费用结算。", "note": "跨洲航班尽量一张票完成联程；香港／深圳方向可能 1 月 4 日才抵达。", "stay": "无" }
+  ],
+  "flights": [
+    { "person": "巴塞罗那出发", "origin": "BCN", "via": "先查 BCN → PRG、BUD → BCN 的直飞（例如 Ryanair），同时核对 25/26 日班次与托运行李后的价格。", "a": null, "b": null },
+    { "person": "多伦多出发", "origin": "YYZ", "via": "查经华沙等欧洲枢纽的一票联程（例如 LOT）；目标 25 日起飞、26 日抵达 PRG，返程从 BUD 出发。", "a": null, "b": null },
+    { "person": "香港／深圳出发", "origin": "HKG / SZX", "via": "HKG 可查经伊斯坦布尔的一票联程（例如 Turkish）；另以 SZX 搜同日多程票，连同跨境时间总比较。", "a": null, "b": null }
+  ],
+  "budget": { "pragueNight": 150, "viennaNight": 230, "budapestNight": 145, "railPerPerson": 75, "foodPerPersonDay": 38, "localPerPerson": 55, "activitiesPerPerson": 105, "bufferPerPerson": 85 },
+  "tasks": [
+    { "text": "确认香港朋友持有效香港身份证／居留证明，并预约奥地利驻港总领馆签证时段", "owner": "香港朋友", "priority": "现在", "done": false },
+    { "text": "另外两人确认护照、申根入境资格，以及 ETIAS 是否已启用", "owner": "巴塞罗那＋多伦多", "priority": "现在", "done": false },
+    { "text": "三人各查 PRG 入、BUD 出；同时查 VIE 往返，总价含行李、改签与衔接", "owner": "三人", "priority": "本周", "done": false },
+    { "text": "预留 2 晚布拉格、4 晚维也纳、2 晚布达佩斯的可取消三人住宿", "owner": "一人统筹", "priority": "本周", "done": false },
+    { "text": "签证材料备齐并递交；申请期间优先可取消预订，获签后再确认不可退票", "owner": "香港朋友", "priority": "尽快", "done": false },
+    { "text": "购买 12/28 布拉格→维也纳、1/1 维也纳→布达佩斯的直达火车", "owner": "一人统筹", "priority": "核对班次后", "done": false },
+    { "text": "预约 12/31 晚餐、美泉宫和选定的温泉／室内景点", "owner": "三人", "priority": "11 月前后", "done": false }
+  ],
+  "groupNote": "航班和住宿尚未锁定。请不要在公开仓库填写护照号、签证材料、预订确认号或手机号。",
+  "sources": [
+    { "name": "欧盟 · 申根签证申请规则", "url": "https://home-affairs.ec.europa.eu/policies/schengen/visa-policy/applying-schengen-visa_en" },
+    { "name": "奥地利驻香港总领馆 · 申请条件与材料", "url": "https://www.bmeia.gv.at/en/austrian-general-consulate-hongkong/travels-to-austria/entrance-and-residence/how-to-apply" },
+    { "name": "欧盟 · ETIAS 启用状态", "url": "https://travel-europe.europa.eu/etias" },
+    { "name": "布拉格旅游局 · 圣诞市集日历", "url": "https://prague.eu/en/akce-kategorie/markets/" },
+    { "name": "维也纳旅游局 · 2026 跨年活动", "url": "https://b2b.wien.info/en/traveltrade-salestools/planning-tips/top-events-2026-1043440" },
+    { "name": "美泉宫 · 圣诞市集", "url": "https://www.schoenbrunn.at/en/events/all-events/event/christmas-market-schoenbrunn-palace" },
+    { "name": "ÖBB · 布拉格与布达佩斯线路", "url": "https://www.oebb.at/en/reiseplanung-services/oebb-zugverbindungen/zugverbindungen-europa" },
+    { "name": "布达佩斯 · 塞切尼温泉开放时间", "url": "https://www.szechenyibath.hu/opening-hours" },
+    { "name": "布达佩斯交通 · 机场巴士 100E", "url": "https://bkk.hu/en/travel-information/airport-express/" },
+    { "name": "Ryanair · BCN → PRG 航线", "url": "https://www.ryanair.com/ie/en/flights/flights-from-barcelona-to-prague" },
+    { "name": "LOT · 多伦多至布拉格", "url": "https://www.lot.com/ca/en/flights/flights-to-europe/flights-to-czech-republic/flights-to-prague/flights-from-toronto-to-prague" },
+    { "name": "Turkish · 香港至布拉格", "url": "https://www.turkishairlines.com/en/flights-from-hong-kong-to-prague" }
+  ]
+}
