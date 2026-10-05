@@ -1,289 +1,239 @@
 {
   "version": 1,
-  "updated": "2026-09-28",
-  "title": "冬日三城汇合计划",
+  "updated": "2026-10-05",
+  "title": "德国与中欧 · 六城冬日计划",
   "dates": "2026.12.25 — 2027.01.03",
   "route": [
+    {
+      "city": "柏林",
+      "en": "Berlin",
+      "code": "BER",
+      "nights": 1,
+      "country": "德国",
+      "range": "12/26–27"
+    },
+    {
+      "city": "慕尼黑",
+      "en": "Munich",
+      "code": "MUC",
+      "nights": 1,
+      "country": "德国",
+      "range": "12/27–28"
+    },
     {
       "city": "布拉格",
       "en": "Prague",
       "code": "PRG",
       "nights": 2,
-      "country": "捷克"
+      "country": "捷克",
+      "range": "12/28–30"
     },
     {
       "city": "维也纳",
       "en": "Vienna",
       "code": "VIE",
-      "nights": 4,
-      "country": "奥地利"
+      "nights": 2,
+      "country": "奥地利",
+      "range": "12/30–1/1"
+    },
+    {
+      "city": "布拉迪斯拉发",
+      "en": "Bratislava",
+      "code": "BTS",
+      "nights": 0,
+      "country": "斯洛伐克",
+      "range": "12/31 日归"
     },
     {
       "city": "布达佩斯",
       "en": "Budapest",
       "code": "BUD",
       "nights": 2,
-      "country": "匈牙利"
+      "country": "匈牙利",
+      "range": "1/1–3"
     }
   ],
   "days": [
     {
       "date": "12月25日",
-      "week": "周五",
-      "city": "在路上",
-      "kind": "flight",
-      "title": "三地出发 · 把集合条件订清楚",
-      "morning": "巴塞罗那朋友确认 25 日或 26 日出发；只需保证 26 日晚能到布拉格，不必为同机到达绕路。",
-      "afternoon": "多伦多朋友优先比较 25 日起飞、26 日抵达 PRG 的同票号联程，核对转机时长和行李直挂。",
-      "evening": "香港／深圳朋友比较 HKG 与 SZX 出发的门到门总时长；同票号联程优先，确认 26 日抵达与申根首次入境点。",
-      "note": "25 日可能是跨洲飞行夜，不计入 8 晚欧洲住宿；到达和返程日期以票面为准。",
-      "stay": "机上／各自安排",
-      "logistics": "把三人航班号、预计抵达时间、PRG 航站楼和集合地点写进小组便签；不要写护照号或完整预订码。",
-      "booking": "只在签证资格确认后锁不可退跨洲机票；同样行李与退改条件下比较三城开口票和维也纳往返。",
-      "backup": "若有人 26 日晚后抵达，先各自入住；次日上午在老城集合，勿让另外两人深夜等候。",
+      "week": "五",
+      "city": "出发",
+      "stay": "飞机上",
+      "title": "三人出发，次日在柏林会合",
+      "morning": "加拿大、香港旅客启程；西班牙朋友可选 26 日早班。",
+      "afternoon": "按一票联程比较 BER 入、BUD 出与德国往返总价。",
+      "evening": "跨洲机上休息。",
+      "logistics": "跨洲航班可能抵达 26 日下午，柏林景点随之缩减。",
+      "booking": "先确认所有人能在 26 日抵达；不同票号转机不要安排短衔接。",
+      "backup": "延误则直接酒店会合。",
+      "note": "",
+      "kind": "",
       "links": []
     },
     {
       "date": "12月26日",
-      "week": "周六",
-      "city": "布拉格",
-      "kind": "stay",
-      "title": "老城集合 · 圣诞市集夜",
-      "morning": "按各自航班抵达。PRG 机场可乘 59 路无轨电车到 Nádraží Veleslavín 换地铁 A；疲劳时先入住休息。",
-      "afternoon": "建议 15:00 后沿旧城广场—天文钟外观—查理大桥步行 1.5–2 小时；晚到的朋友直接加入。",
-      "evening": "建议 19:00 在旧城广场明确的咖啡馆门口集合，逛圣诞市集、吃简餐，再步行回住处。",
-      "note": "圣诞市集各摊位与餐厅营业可能不同，官方活动页与当天现场信息为准。",
-      "stay": "布拉格第 1 晚",
-      "logistics": "酒店优先 Praha hl.n.／新城或地铁 A 方便区域；机场 59 + 地铁 A 按 PID 有效车票换乘，纸票留意首次验证。",
-      "booking": "市集不需预约。若想登旧市政厅塔，另看节日时段与单独门票；晚餐提前找有营业公告的店。",
-      "backup": "迟到或下雪时缩短步行，旧城广场和附近室内咖啡馆即可；集合点与离队方式先约好。",
-      "links": [
-        {
-          "name": "布拉格机场交通",
-          "url": "https://www.prg.aero/en/public-transport-buses"
-        },
-        {
-          "name": "旧城广场市集",
-          "url": "https://prague.eu/en/akce/old-town-square-christmas-market/"
-        }
-      ]
+      "week": "六",
+      "city": "柏林",
+      "stay": "柏林 1 晚",
+      "title": "柏林会合与市中心半日",
+      "morning": "抵达、寄存行李、午餐。",
+      "afternoon": "勃兰登堡门 → 国会大厦外观 → 纪念碑，约 2–3 小时。",
+      "evening": "菩提树下大街散步，早休息。",
+      "logistics": "住 Berlin Hbf 或 Friedrichstraße 附近；今天不排远郊。",
+      "booking": "国会大厦内部需另预约；此版只看外观。",
+      "backup": "晚到就只看勃兰登堡门。",
+      "note": "",
+      "kind": "",
+      "links": []
     },
     {
       "date": "12月27日",
-      "week": "周日",
-      "city": "布拉格",
-      "kind": "stay",
-      "title": "城堡区 · 主教座堂 · 小城区",
-      "morning": "建议 09:00 乘 22 路电车到 Pražský hrad；先看城堡庭院、旧皇宫或黄金巷，留 1.5–2 小时。",
-      "afternoon": "周日圣维特主教座堂通常 12:00 后开放参观，争取 12:30–14:00 进入；再沿小城区下坡到查理大桥看日落前河景。",
-      "evening": "在小城区或新城吃捷克家常菜；若体力足够，再步行看瓦茨拉夫广场灯饰。",
-      "note": "不要把主教座堂安排在周日上午；节日特殊公告可能覆盖常规时段。",
-      "stay": "布拉格第 2 晚",
-      "logistics": "城堡建筑冬季通常 09:00–16:00；主教座堂周日 12:00–16:00、末次入场通常 15:40。城堡王家花园冬季关闭。",
-      "booking": "先选免费庭院／外观还是付费主线路；官方信息中心可购回路票。临时宗教活动与关闭公告须在 12 月再查。",
-      "backup": "遇到关闭或大雪，就走城堡外部和小城区短线；把室内参观换成旧城咖啡馆或其他当日开放博物馆。",
-      "links": [
-        {
-          "name": "城堡冬季时段",
-          "url": "https://www.hrad.cz/en/prague-castle-for-visitors/opening-hours"
-        },
-        {
-          "name": "城堡门票",
-          "url": "https://www.hrad.cz/en/prague-castle-for-visitors/tickets"
-        }
-      ]
+      "week": "日",
+      "city": "慕尼黑",
+      "stay": "慕尼黑 1 晚",
+      "title": "柏林 → 慕尼黑",
+      "morning": "早班 ICE；全程规划 4–5 小时，具体时刻待查。",
+      "afternoon": "酒店寄存 → 玛利亚广场 → 老城慢走。",
+      "evening": "巴伐利亚晚餐，准备次日小包。",
+      "logistics": "住 München Hbf 附近；为次日晚寄存和取包确认酒店服务。",
+      "booking": "先买铁路票；不要用当前最快时长当作指定日保证。",
+      "backup": "列车延误时只保留老城晚餐。",
+      "note": "",
+      "kind": "",
+      "links": []
     },
     {
       "date": "12月28日",
-      "week": "周一",
-      "city": "维也纳",
-      "kind": "rail",
-      "title": "直达火车进维也纳",
-      "morning": "建议订 09:00–10:00 左右从 Praha hl.n. 出发的直达列车，早餐后提前到站；实际时刻、车站和车程以出票为准。",
-      "afternoon": "到 Wien Hbf 后办理入住或寄存行李；16:00 左右沿卡尔广场、国家歌剧院外观到圣斯蒂芬大教堂散步。",
-      "evening": "市中心吃晚餐，早点休息。音乐会如想参加，只向剧院或主办方核实节目和最终价格。",
-      "note": "当天总移动约半天，景点以步行外观为主。",
-      "stay": "维也纳第 1 晚",
-      "logistics": "优先比较 ČD 与 ÖBB 的同班直达车；通常约 4 小时多，跨境车票和座位预订分开核对，三人尽量订相邻座。",
-      "booking": "12 月下旬处于冬季新时刻表，先查 12/28 正式班次、退改、座位和维也纳抵达站，别把示例时段当已确认车次。",
-      "backup": "列车延误就取消下午付费活动，只保留大教堂外观与晚餐；可先在住宿处安排自助入住。",
-      "links": [
-        {
-          "name": "ÖBB 布拉格列车",
-          "url": "https://www.oebb.at/en/reiseplanung-services/oebb-zugverbindungen/zugverbindungen-europa/prag"
-        },
-        {
-          "name": "ČD 订票",
-          "url": "https://www.cd.cz/en/e-shop/"
-        }
-      ]
+      "week": "一",
+      "city": "布拉格",
+      "stay": "布拉格第 1 晚",
+      "title": "新天鹅堡 → 晚间前往布拉格（最紧一天）",
+      "morning": "约 06–07 点出发到 Füssen，再转巴士至 Hohenschwangau；预留上山时间。",
+      "afternoon": "预约约 11 点参观，午饭后回慕尼黑，约 16–17 点取包。",
+      "evening": "搭可实际衔接的晚班车前往布拉格，约 6 小时；到站后入住。",
+      "logistics": "必须核实冬季返程和慕尼黑→布拉格末班。订票前同时验证两个方向。",
+      "booking": "先锁定城堡时段；如果无合适晚班，必须加一晚慕尼黑或删柏林。",
+      "backup": "雪天或连接不成立：取消城堡，慕尼黑城市游后提前赴布拉格；不要强赶末班。",
+      "note": "",
+      "kind": "",
+      "links": []
     },
     {
       "date": "12月29日",
-      "week": "周二",
-      "city": "维也纳",
-      "kind": "stay",
-      "title": "美泉宫 · 冬季花园 · 市集",
-      "morning": "建议预约 09:30–10:30 的美泉宫室内入场，按票种参观约 75–120 分钟；不要把户外专门园区算作冬季开放。",
-      "afternoon": "在前庭市集吃午餐或点心；天气好走免费开放的公园主轴，约 15:00 回城休息。",
-      "evening": "自由选择普通餐馆和咖啡馆，控制当天门票开支。",
-      "note": "免费公园与收费宫殿分开；宫殿冬季喷泉停运。",
-      "stay": "维也纳第 2 晚",
-      "logistics": "Wien Hbf 可乘 U1 到 Karlsplatz 换 U4，在 Schönbrunn 下车；宫殿 2026/11/3–2027/3/31 常规 08:30–17:00，末次入场提前。",
-      "booking": "市集 2026/11/6–2027/1/6 免费进入；宫殿内部为付费分时票，先看 Palace Ticket 等选项和票面日期。",
-      "backup": "若门票售罄，保留免费公园与市集；遇冰雪就缩短户外步行，改在市区咖啡馆。",
-      "links": [
-        {
-          "name": "美泉宫开放时间",
-          "url": "https://www.schoenbrunn.at/en/visitor-information/opening-times"
-        },
-        {
-          "name": "美泉宫市集",
-          "url": "https://www.schoenbrunn.at/en/events/all-events/event/christmas-market-schoenbrunn-palace"
-        }
-      ]
+      "week": "二",
+      "city": "布拉格",
+      "stay": "布拉格第 2 晚",
+      "title": "布拉格城堡与旧城",
+      "morning": "约 09 点城堡区、圣维特大教堂，预留 2–3 小时。",
+      "afternoon": "小城区 → 查理大桥 → 旧城广场。",
+      "evening": "传统捷克晚餐；冬天步行途中安排咖啡馆暖身。",
+      "logistics": "城堡在高处，步行下坡顺路；使用防滑鞋。",
+      "booking": "核实城堡门票与冬季室内开放；按需预订。",
+      "backup": "结冰则减少城堡坡道，旧城＋博物馆。",
+      "note": "",
+      "kind": "",
+      "links": []
     },
     {
       "date": "12月30日",
-      "week": "周三",
+      "week": "三",
       "city": "维也纳",
-      "kind": "stay",
-      "title": "一座博物馆 · 一段城市漫步",
-      "morning": "建议 10:00–12:30 选艺术史博物馆看经典馆藏；若更想看《吻》，改订上美景宫约 10:00 入场，二选一。",
-      "afternoon": "在环城大道／霍夫堡外观与博物馆区一带慢走；留出咖啡馆和冬季天气缓冲，不另加第二座收费博物馆。",
-      "evening": "核对跨年夜的晚餐确认与步行回住处路线，提早睡。",
-      "note": "一馆约 2–2.5 小时即可，给 31 日跨年留精力。",
-      "stay": "维也纳第 3 晚",
-      "logistics": "艺术史博物馆位于玛丽亚特蕾西亚广场；上美景宫需有效时段票。按当日开放页面决定选项，两个地点不在同一个门口。",
-      "booking": "先确认 12/30 的官方时段和票价，再订一馆。艺术史博物馆常规周三开放；上美景宫时段票建议提前买。",
-      "backup": "若博物馆临时闭馆或预算紧，改为霍夫堡外观—英雄广场—博物馆区的免费步行。",
-      "links": [
-        {
-          "name": "艺术史博物馆",
-          "url": "https://www.khm.at/en/visit/besucherinformation/hours-admission/"
-        },
-        {
-          "name": "上美景宫时段票",
-          "url": "https://www.belvedere.at/en/visit"
-        }
-      ]
+      "stay": "维也纳第 1 晚",
+      "title": "布拉格 → 维也纳",
+      "morning": "早班直达列车，规划约 4–4.5 小时。",
+      "afternoon": "入住后美泉宫：选宫内预约或庭院散步，约 2–3 小时。",
+      "evening": "圣斯蒂芬大教堂周边晚餐。",
+      "logistics": "住宿优先地铁方便的 Wien Hbf、Karlsplatz 周边。",
+      "booking": "美泉宫若约不到合适时段，改市中心。",
+      "backup": "晚到则市中心咖啡馆，宫殿改次日并放弃日归。",
+      "note": "",
+      "kind": "",
+      "links": []
     },
     {
       "date": "12月31日",
-      "week": "周四",
-      "city": "维也纳",
-      "kind": "event",
-      "title": "跨年夜 · 先定集合与回程",
-      "morning": "睡晚一点，午前确认 1 月 1 日火车与退房；在市中心简单步行或采购零食，不塞新的收费景点。",
-      "afternoon": "14:00 起的 New Year’s Eve Trail 可从 Freyung／Am Hof 到 Stephansplatz 选一小段体验；16:30 左右回住处保暖休息。",
-      "evening": "18:30–20:00 在已确认营业的餐厅晚餐，22:30 前决定一个广场作为跨年点；避开人群最密处，午夜后按预先核对的路线回住处。",
-      "note": "只参加免费公共活动即可，不将昂贵跨年宴计入基准预算。",
-      "stay": "维也纳第 4 晚",
-      "logistics": "官方 2026/12/31 活动为 14:00–次日 02:00、免费；舞台地图、进出动线和夜间交通请在 12 月复核。",
-      "booking": "先订可取消晚餐；确认节日期间营业、每人最低消费和取消条款。选择步行或可靠夜间公共交通可到的住宿。",
-      "backup": "下雨、拥挤或有人疲惫时，提早在室内聚餐后回住处倒数，不必撑到凌晨 2 点。",
-      "links": [
-        {
-          "name": "维也纳跨年之路",
-          "url": "https://www.wien.info/en/now-on/events/new-years-eve-trail-2024-1046684"
-        }
-      ]
+      "week": "四",
+      "city": "布拉迪斯拉发",
+      "stay": "返回维也纳第 2 晚",
+      "title": "布拉迪斯拉发日归＋维也纳跨年",
+      "morning": "约 08–09 点维也纳出发，火车约 1 小时。",
+      "afternoon": "旧城 → 米歇尔门周边 → 城堡外部，午餐后返回。",
+      "evening": "约 17 点前回维也纳；提前吃饭，再逛跨年活动。",
+      "logistics": "往返火车＋市区交通需单独核对；当天不换酒店、不带大箱。",
+      "booking": "查节日末班；跨年晚餐提前预约。",
+      "backup": "疲惫或雨雪则取消日归，留在维也纳；绝不依赖最后一班。",
+      "note": "",
+      "kind": "",
+      "links": []
     },
     {
       "date": "1月1日",
-      "week": "周五",
+      "week": "五",
       "city": "布达佩斯",
-      "kind": "rail",
-      "title": "元旦慢车 · 多瑙河夜景",
-      "morning": "跨年后晚起、退房；建议预留约 1 小时从住宿到 Wien Hbf，选中午或下午的直达列车。",
-      "afternoon": "以票面到站为准入城，入住后在佩斯一侧沿多瑙河看国会大厦、链桥外观；天黑前后均可短走。",
-      "evening": "在事先确认元旦营业的餐厅吃饭，早休息；塞切尼温泉移至 1 月 2 日，避免火车延误赶不上入场。",
-      "note": "元旦营业可能与普通周五不同；不要把温泉或议会大厦内部门票压在转场日。",
       "stay": "布达佩斯第 1 晚",
-      "logistics": "ÖBB 页面列维也纳—布达佩斯约每小时有班次；元旦实际时刻、终到站和市内交通以出发前公告为准。",
-      "booking": "订 1/1 正式直达班次与三人座位，尽量选可合理退改的票；住宿确认节日自助入住方式。",
-      "backup": "若列车延误，直接去住宿和晚餐；国会大厦只看外观，河边大风就缩短。",
-      "links": [
-        {
-          "name": "ÖBB 布达佩斯列车",
-          "url": "https://www.oebb.at/en/reiseplanung-services/oebb-zugverbindungen/zugverbindungen-europa/budapest"
-        },
-        {
-          "name": "BKK 行程与车票",
-          "url": "https://bkk.hu/en/visiting-budapest/tickets-and-passes/"
-        }
-      ]
+      "title": "维也纳 → 布达佩斯",
+      "morning": "睡足、退房；中午前后列车，规划约 2.5–3 小时。",
+      "afternoon": "入住后多瑙河两岸散步、国会大厦外观。",
+      "evening": "河岸夜景和晚餐。",
+      "logistics": "节假日餐厅营业需核实；今天不安排中央市场购物。",
+      "booking": "如果想入国会大厦，另查真实时段，不能默认节日营业。",
+      "backup": "晚到则酒店附近简餐。",
+      "note": "",
+      "kind": "",
+      "links": []
     },
     {
       "date": "1月2日",
-      "week": "周六",
+      "week": "六",
       "city": "布达佩斯",
-      "kind": "stay",
-      "title": "城堡山 · 中央市场 · 温泉",
-      "morning": "建议 09:00 到渔人堡和马加什教堂外观，约 1.5 小时；风大时只看免费可达的公共平台与街道。",
-      "afternoon": "12:00 前后到中央市场大厅吃简餐、买少量伴手礼；15:00–18:00 左右前往塞切尼温泉，留足更衣与回程时间。",
-      "evening": "回市中心吃告别晚餐，检查次日 100E 机场巴士票、行李和航班航站楼。",
-      "note": "温泉票通常不含泳衣、毛巾、拖鞋；泳池游泳道所需泳帽向官网核对。",
       "stay": "布达佩斯第 2 晚",
-      "logistics": "中央市场官网列周六 06:00–16:00、公共假日闭馆；温泉可乘 M1 地铁到 Széchenyi fürdő。三处跨区，按 BKK 实时路线排换乘。",
-      "booking": "先订 1/2 温泉官方日票；旺季日期与价格需再核对。渔人堡上层收费区域和马加什教堂内部作为可选，不做必买。",
-      "backup": "若市场公布特别闭馆，就改在附近已营业餐馆午餐；大风或下雪，减少城堡山步行，保留温泉。",
-      "links": [
-        {
-          "name": "中央市场营业",
-          "url": "https://piaconline.hu/en/central-market-hall/"
-        },
-        {
-          "name": "温泉开放时间",
-          "url": "https://www.szechenyibath.hu/opening-hours"
-        },
-        {
-          "name": "温泉常见问题",
-          "url": "https://www.szechenyibath.hu/faq"
-        }
-      ]
+      "title": "城堡山与温泉",
+      "morning": "渔人堡 → 马加什教堂周边 → 布达城堡外部，约 2–3 小时。",
+      "afternoon": "塞切尼温泉约 2–3 小时；也可改咖啡馆和中央市场。",
+      "evening": "最后一晚合餐，核对返程。",
+      "logistics": "备泳衣、拖鞋、毛巾；温泉与城堡跨河，预留交通。",
+      "booking": "从温泉官网购买对应日票；价格随日期变化。",
+      "backup": "温泉满额改城市公园散步与室内展馆。",
+      "note": "",
+      "kind": "",
+      "links": []
     },
     {
       "date": "1月3日",
-      "week": "周日",
+      "week": "日",
       "city": "返程",
-      "kind": "flight",
-      "title": "三人从 BUD 各自返程",
-      "morning": "按最早航班倒推出门时间；从 Deák Ferenc tér 或 Kálvin tér 可搭 100E 到机场，国际航班另预留值机与安检时间。",
-      "afternoon": "巴塞罗那可查当日到达；多伦多和香港／深圳按中转与时差核对实际抵达日。",
-      "evening": "在群内报平安并结算共同住宿与车票开支；香港／深圳方向可能 1 月 4 日才抵达。",
-      "note": "1 月 3 日是欧洲起飞日，不保证三地都在同一日到家。",
-      "stay": "无",
-      "logistics": "100E 需要专门机场巴士车票，普通单程票不适用；从住宿到站的步行与节日班次用 BudapestGO 当天复核。",
-      "booking": "出发前一晚看航空公司值机、机场航站楼及 100E 票种，勿只按地图软件的平常车程倒推。",
-      "backup": "若早班机不适合公共交通，三人各自预先比较正规出租车／住宿安排的机场接送。",
-      "links": [
-        {
-          "name": "BKK 100E 机场巴士",
-          "url": "https://bkk.hu/en/visiting-budapest/247-connection-between-the-airport-and-the-city-centre/"
-        }
-      ]
+      "stay": "回程飞机",
+      "title": "布达佩斯分别返程",
+      "morning": "根据最早航班安排退房与机场交通。",
+      "afternoon": "各自返程；离境日不安排付费景点。",
+      "evening": "香港旅客可能 1 月 4 日抵达。",
+      "logistics": "建议国际航班提前约 3 小时到机场；具体以航空公司要求为准。",
+      "booking": "确认行李额度、转机条件和返程抵达日期。",
+      "backup": "若必须 1/3 抵达香港，需要改为 1/2 离欧。",
+      "note": "",
+      "kind": "",
+      "links": []
     }
   ],
   "flights": [
     {
-      "person": "巴塞罗那出发",
-      "origin": "BCN",
-      "via": "先查 BCN → PRG、BUD → BCN 的直飞（例如 Ryanair），同时核对 25/26 日班次与托运行李后的价格。",
+      "person": "西班牙朋友",
+      "origin": "BCN（暂定）",
+      "via": "统一比较 BER 入境 / BUD 离境的多程票；含行李、一票联程和抵达时刻一起比较。尚无实时报价。",
       "a": null,
       "b": null
     },
     {
-      "person": "多伦多出发",
-      "origin": "YYZ",
-      "via": "查经华沙等欧洲枢纽的一票联程（例如 LOT）；目标 25 日起飞、26 日抵达 PRG，返程从 BUD 出发。",
+      "person": "加拿大朋友",
+      "origin": "YYZ（暂定）",
+      "via": "统一比较 BER 入境 / BUD 离境的多程票；含行李、一票联程和抵达时刻一起比较。尚无实时报价。",
       "a": null,
       "b": null
     },
     {
-      "person": "香港／深圳出发",
+      "person": "香港朋友",
       "origin": "HKG / SZX",
-      "via": "HKG 可查经伊斯坦布尔的一票联程（例如 Turkish）；另以 SZX 搜同日多程票，连同跨境时间总比较。",
+      "via": "统一比较 BER 入境 / BUD 离境的多程票；含行李、一票联程和抵达时刻一起比较。尚无实时报价。",
       "a": null,
       "b": null
     }
@@ -300,173 +250,85 @@
   },
   "tasks": [
     {
-      "text": "确认香港朋友有效香港／澳门居留资格，预约奥地利驻港申根签证并核对材料",
-      "owner": "香港朋友",
-      "priority": "现在",
-      "done": false
+      "done": false,
+      "text": "确定是否接受 12/28 城堡＋晚班火车，或删柏林/延长日期",
+      "owner": "一起",
+      "priority": "优先"
     },
     {
-      "text": "另两人确认护照和申根入境资格，临行核对 ETIAS 是否启用",
-      "owner": "巴塞罗那＋多伦多",
-      "priority": "现在",
-      "done": false
+      "done": false,
+      "text": "比较三地 BER 入 / BUD 出含行李的机票",
+      "owner": "一起",
+      "priority": "优先"
     },
     {
-      "text": "各查 PRG 入、BUD 出与 VIE 往返，比较含行李、联程、退改和跨境接驳的总价",
-      "owner": "三人",
-      "priority": "本周",
-      "done": false
+      "done": false,
+      "text": "核实 12/28 城堡时段与两段铁路衔接",
+      "owner": "一起",
+      "priority": "优先"
     },
     {
-      "text": "预留 2 晚布拉格、4 晚维也纳、2 晚布达佩斯的可取消三人住宿，记下入住条件",
-      "owner": "一人统筹",
-      "priority": "本周",
-      "done": false
+      "done": false,
+      "text": "订可免费取消的三人房，核实晚入住与寄存",
+      "owner": "一起",
+      "priority": "优先"
     },
     {
-      "text": "签证递交期间保留可取消安排，获签后再确认不可退机票和住宿",
-      "owner": "香港朋友",
-      "priority": "尽快",
-      "done": false
+      "done": false,
+      "text": "核对护照、签证及旅行保险；主目的地按实际住宿与行程判断",
+      "owner": "一起",
+      "priority": "优先"
     },
     {
-      "text": "核对冬季新时刻表，订 12/28 PRG→VIE 与 1/1 VIE→BUD 直达车及相邻座位",
-      "owner": "一人统筹",
-      "priority": "时刻表确认后",
-      "done": false
-    },
-    {
-      "text": "选定 12/29 美泉宫室内时段，12/30 一座博物馆；若选上美景宫须订时段票",
-      "owner": "三人",
-      "priority": "10–11 月",
-      "done": false
-    },
-    {
-      "text": "为 12/31 订可取消晚餐，查看跨年地图、步行回住处路线和夜间交通",
-      "owner": "维也纳统筹",
-      "priority": "11–12 月",
-      "done": false
-    },
-    {
-      "text": "预订 1/2 塞切尼温泉官方票，并核对市场假期时段；带泳衣、毛巾与拖鞋",
-      "owner": "布达佩斯统筹",
-      "priority": "11–12 月",
-      "done": false
-    },
-    {
-      "text": "出发前再次核对景点临时关闭、节日餐厅、城际班次和 100E 机场巴士票种",
-      "owner": "三人",
-      "priority": "出发前一周",
-      "done": false
+      "done": false,
+      "text": "预订美泉宫、温泉与跨年晚餐",
+      "owner": "一起",
+      "priority": "优先"
     }
   ],
-  "groupNote": "航班和住宿尚未锁定。请不要在公开仓库填写护照号、签证材料、预订确认号或手机号。",
+  "groupNote": "沿用 2026/12/25 出发、2027/1/3 返程。全六城为紧凑版：柏林只半天，慕尼黑只一晚，需接受频繁换酒店。更划算舒适的选择是删去柏林，直接飞慕尼黑，把多出的一晚留给慕尼黑；全保留建议延长至 1/6。所有费用为预算，未查询具体班次实价。",
   "sources": [
     {
-      "name": "欧盟 · 申根签证申请规则",
-      "url": "https://home-affairs.ec.europa.eu/policies/schengen/visa-policy/applying-schengen-visa_en"
+      "name": "DB：柏林–慕尼黑",
+      "url": "https://www.bahn.de/reisen/view/verbindung/berlin/muenchen.shtml"
     },
     {
-      "name": "奥地利驻香港总领馆 · 申请条件与材料",
-      "url": "https://www.bmeia.gv.at/en/austrian-general-consulate-hongkong/travels-to-austria/entrance-and-residence/how-to-apply"
+      "name": "DB：慕尼黑–布拉格",
+      "url": "https://www.bahn.de/reisen/view/verbindung/muenchen/prag.shtml"
     },
     {
-      "name": "欧盟 · ETIAS 启用状态",
-      "url": "https://travel-europe.europa.eu/etias"
+      "name": "ÖBB：维也纳–布拉迪斯拉发",
+      "url": "https://www.oebb.at/en/regionale-angebote/ueberregionale-angebote/bratislava-ticket"
     },
     {
-      "name": "布拉格旅游局 · 圣诞市集日历",
-      "url": "https://prague.eu/en/akce-kategorie/markets/"
+      "name": "新天鹅堡票务",
+      "url": "https://www.hohenschwangau.de/en/tours-tickets/opening-times"
     },
     {
-      "name": "维也纳旅游局 · 2026 跨年活动",
-      "url": "https://b2b.wien.info/en/traveltrade-salestools/planning-tips/top-events-2026-1043440"
+      "name": "美泉宫",
+      "url": "https://www.schoenbrunn.at/en/"
     },
     {
-      "name": "美泉宫 · 圣诞市集",
-      "url": "https://www.schoenbrunn.at/en/events/all-events/event/christmas-market-schoenbrunn-palace"
-    },
-    {
-      "name": "ÖBB · 布拉格与布达佩斯线路",
-      "url": "https://www.oebb.at/en/reiseplanung-services/oebb-zugverbindungen/zugverbindungen-europa"
-    },
-    {
-      "name": "布达佩斯 · 塞切尼温泉开放时间",
-      "url": "https://www.szechenyibath.hu/opening-hours"
-    },
-    {
-      "name": "布达佩斯交通 · 机场巴士 100E",
-      "url": "https://bkk.hu/en/travel-information/airport-express/"
-    },
-    {
-      "name": "Ryanair · BCN → PRG 航线",
-      "url": "https://www.ryanair.com/ie/en/flights/flights-from-barcelona-to-prague"
-    },
-    {
-      "name": "LOT · 多伦多至布拉格",
-      "url": "https://www.lot.com/ca/en/flights/flights-to-europe/flights-to-czech-republic/flights-to-prague/flights-from-toronto-to-prague"
-    },
-    {
-      "name": "Turkish · 香港至布拉格",
-      "url": "https://www.turkishairlines.com/en/flights-from-hong-kong-to-prague"
-    },
-    {
-      "name": "布拉格机场 · 59 路与地铁 A",
-      "url": "https://www.prg.aero/en/public-transport-buses"
-    },
-    {
-      "name": "布拉格城堡 · 冬季开放与临时关闭",
-      "url": "https://www.hrad.cz/en/prague-castle-for-visitors/opening-hours"
-    },
-    {
-      "name": "布拉格城堡 · 门票",
-      "url": "https://www.hrad.cz/en/prague-castle-for-visitors/tickets"
-    },
-    {
-      "name": "美泉宫 · 宫殿开放与购票",
-      "url": "https://www.schoenbrunn.at/en/visitor-information/opening-times"
-    },
-    {
-      "name": "维也纳艺术史博物馆 · 参观",
-      "url": "https://www.khm.at/en/visit/besucherinformation/hours-admission/"
-    },
-    {
-      "name": "上美景宫 · 分时票",
-      "url": "https://www.belvedere.at/en/visit"
-    },
-    {
-      "name": "维也纳旅游局 · 跨年之路",
-      "url": "https://www.wien.info/en/now-on/events/new-years-eve-trail-2024-1046684"
-    },
-    {
-      "name": "布达佩斯中央市场 · 营业",
-      "url": "https://piaconline.hu/en/central-market-hall/"
-    },
-    {
-      "name": "塞切尼温泉 · 价格与用品",
-      "url": "https://www.szechenyibath.hu/prices-2026"
-    },
-    {
-      "name": "布达佩斯交通 · 100E 票种",
-      "url": "https://bkk.hu/en/visiting-budapest/247-connection-between-the-airport-and-the-city-centre/"
+      "name": "塞切尼温泉",
+      "url": "https://www.szechenyibath.hu/"
     }
   ],
   "attractions": [
     {
-      "city": "布拉格",
-      "day": "12/26",
-      "title": "旧城广场圣诞市集",
-      "time": "抵达后傍晚 · 约 60–90 分钟",
-      "booking": "户外市集不设景点入场预约；2026/27 活动已列官网，具体摊位与当晚节目临行再查。",
-      "arrival": "住在旧城／新城可步行；从机场先搭 59 路换地铁 A，不要带大箱在人群里逛。",
-      "bring": "防滑鞋、保暖层、小额本地货币或银行卡；约定一个明确的会合店门口。",
-      "fallback": "航班晚点则只在旧城广场合照、简餐，第二天另补慢走。",
-      "sourceName": "布拉格旅游局 · 市集",
-      "url": "https://prague.eu/en/akce/old-town-square-christmas-market/"
+      "city": "慕尼黑",
+      "day": "12/28",
+      "title": "新天鹅堡：优先准备",
+      "time": "冬季约 10–16 点，以预约为准",
+      "booking": "12/24、25、31 和 1/1 关闭。只从官方票务预约固定时段。",
+      "arrival": "慕尼黑→Füssen→Hohenschwangau；从山脚步行上山约 30–40 分钟，另留缓冲。",
+      "bring": "防滑防水鞋、手套、小背包、预约二维码；不要携大行李。",
+      "fallback": "玛丽恩桥可能因雪冰关闭，摆渡车也会受天气影响；不把桥上拍照作为保证项目。",
+      "sourceName": "官方票务与冬季开放",
+      "url": "https://www.hohenschwangau.de/en/tours-tickets/opening-times"
     },
     {
       "city": "布拉格",
-      "day": "12/27",
+      "day": "12/29",
       "title": "布拉格城堡与圣维特",
       "time": "09:00–14:30 · 周日下午才进主教座堂",
       "booking": "冬季宫殿等室内建筑常规 09:00–16:00；周日主教座堂 12:00–16:00、末次入场 15:40。购票与临时关闭查官网。",
@@ -478,7 +340,7 @@
     },
     {
       "city": "维也纳",
-      "day": "12/29",
+      "day": "12/30",
       "title": "美泉宫与前庭市集",
       "time": "建议 09:30 宫殿 · 午后公园和市集",
       "booking": "宫殿 2026/11/3–2027/3/31 常规 08:30–17:00，门票分时；市集至 2027/1/6，前庭免费进入。",
@@ -487,42 +349,6 @@
       "fallback": "宫殿满额时只逛公园与市集；恶劣天气缩短户外时间。",
       "sourceName": "美泉宫 · 开放时间与购票",
       "url": "https://www.schoenbrunn.at/en/visitor-information/opening-times"
-    },
-    {
-      "city": "维也纳",
-      "day": "12/30",
-      "title": "艺术史博物馆／上美景宫",
-      "time": "二选一 · 10:00–12:30",
-      "booking": "艺术史博物馆周三常规开放，节日特殊安排临行核对；上美景宫须选择入场时段。只安排一座收费馆。",
-      "arrival": "艺术史博物馆在玛丽亚特蕾西亚广场；美景宫在城东南，选馆后用 WienMobil 查当天路线。",
-      "bring": "先查官网可用票、证件优惠与预计参观时长；馆内用小包更便捷。",
-      "fallback": "若无票，改为霍夫堡—英雄广场—博物馆区外观免费路线。",
-      "sourceName": "上美景宫 · 参观与分时票",
-      "url": "https://www.belvedere.at/en/visit"
-    },
-    {
-      "city": "维也纳",
-      "day": "12/31",
-      "title": "New Year’s Eve Trail",
-      "time": "14:00–次日 02:00 · 选一段即可",
-      "booking": "维也纳旅游局列 2026/12/31 免费入场；各舞台节目与地图等最终公布后再挑一处跨年点。",
-      "arrival": "活动在第一区与 Rathausplatz 等地；选能步行回住处的区域，事先核对封路和夜间交通。",
-      "bring": "保暖防水层、手机电量、三人集合点和失散后的联络方案；晚餐尽早订。",
-      "fallback": "人群拥挤或天气恶劣时提早离开，在餐馆或住宿处倒数。",
-      "sourceName": "维也纳旅游局 · 跨年活动",
-      "url": "https://www.wien.info/en/now-on/events/new-years-eve-trail-2024-1046684"
-    },
-    {
-      "city": "布达佩斯",
-      "day": "1/2",
-      "title": "渔人堡与中央市场",
-      "time": "09:00 城堡山 · 12:00 市场",
-      "booking": "渔人堡外观和公共区域可先看；上层收费部分自行决定。中央市场官网列周六 06:00–16:00，假日关闭，1/2 特别时段再查。",
-      "arrival": "先到布达城堡山，再跨河到佩斯侧的 Fővám tér 中央市场；预留跨区交通时间。",
-      "bring": "防风保暖层、少量现金或银行卡；市场采购只买可带回住宿的食物。",
-      "fallback": "风雪时缩短高处步行；市场如临时闭馆，附近餐馆午餐并提早去温泉。",
-      "sourceName": "中央市场大厅 · 官方营业",
-      "url": "https://piaconline.hu/en/central-market-hall/"
     },
     {
       "city": "布达佩斯",
@@ -535,6 +361,32 @@
       "fallback": "如果售罄或身体不适，改为城市公园散步与室内咖啡馆，不强行泡汤。",
       "sourceName": "塞切尼温泉 · 开放时间",
       "url": "https://www.szechenyibath.hu/opening-hours"
+    }
+  ],
+  "costs": [
+    {
+      "name": "住宿（8晚三人间/公寓分摊）",
+      "amount": 560
+    },
+    {
+      "name": "城际铁路＋城堡日归交通",
+      "amount": 230
+    },
+    {
+      "name": "餐饮",
+      "amount": 320
+    },
+    {
+      "name": "城市交通与机场",
+      "amount": 75
+    },
+    {
+      "name": "景点与温泉",
+      "amount": 140
+    },
+    {
+      "name": "机动预算",
+      "amount": 130
     }
   ]
 }
